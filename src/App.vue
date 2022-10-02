@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div>
+    <header>
       <input type="text" name="query" v-model="query" @keyup.enter="search()">
       <button @click="search()" >Vai!</button>
-    </div>
+    </header>
     <div>
       <h2 v-if="movies.length > 0">Movies</h2>
       <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>
@@ -72,9 +72,13 @@ export default {
 
 <style lang="scss">
 @import url(@/main.scss);
-#app {
-
-
-
+header{
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  background-color: lightgray;
+  input, button{
+    height: 3vh;
+  }
 }
 </style>

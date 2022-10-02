@@ -5,7 +5,8 @@
         <p>Language: 
         <FlagComponent :language="movie.original_language"/>
         </p> 
-        <p>Vote: {{movie.vote_average}}</p> 
+        <VoteComponent :vote="movie.vote_average"/>
+        <PosterComponent :image="movie.poster_path" :alt="movie.title"/>
 </div>
 </template>
 
@@ -13,6 +14,8 @@
 <script>
 
 import FlagComponent from '@/components/flagComponent.vue';
+import PosterComponent from '@/components/posterComponent.vue';
+import VoteComponent from '@/components/voteComponent.vue';
 
 export default {
     name: 'MovieCard',
@@ -20,7 +23,9 @@ export default {
         movie: Object,
     }, 
     components:{
-        FlagComponent
+        FlagComponent,
+        PosterComponent,
+        VoteComponent
     }
 }
 </script>
