@@ -5,9 +5,9 @@
       <button @click="search()" >Vai!</button>
     </div>
     <div>
-      <h2>Movies</h2>
+      <h2 v-if="movies.length > 0">Movies</h2>
       <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>
-      <h2>Tv Series</h2>
+      <h2 v-if="tvSeries.length > 0">Tv Series</h2>
       <TvSeriesCard v-for="tvSerie in tvSeries" :key="tvSerie.id" :tv="tvSerie"/>
 
 
@@ -54,10 +54,10 @@ export default {
       this.query = '';
     },
     moviesLinkBuilder(){
-      return `${this.apiUrl}search/movie?api_key=${this.apiKey}&langage=it-IT&query=${this.query}&page=1&include_adult=false`;
+      return `${this.apiUrl}search/movie?api_key=${this.apiKey}&query=${this.query}&page=1&include_adult=false`;
     },
     tvLinkBuilder(){
-      return `${this.apiUrl}search/tv?api_key=${this.apiKey}&langage=it-IT&query=${this.query}&page=1&include_adult=false`;
+      return `${this.apiUrl}search/tv?api_key=${this.apiKey}&query=${this.query}&page=1&include_adult=false`;
     },
     checkData(response){
       return response.status === 200 ? response.data.results : []; 
@@ -71,7 +71,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import url(@/main.scss);
 #app {
+
+
 
 }
 </style>
