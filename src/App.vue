@@ -6,12 +6,21 @@
     </header>
     <div>
       <h2 v-if="movies.length > 0">Movies</h2>
-      <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>
+      <CardComponent v-for="movie in movies" :key="movie.id"
+      :title="movie.title"
+      :originalTitle="movie.original_title"
+      :vote="movie.vote_average"
+      :language="movie.original_language"
+      :image="movie.poster_path"
+      />
       <h2 v-if="tvSeries.length > 0">Tv Series</h2>
-      <TvSeriesCard v-for="tvSerie in tvSeries" :key="tvSerie.id" :tv="tvSerie"/>
-
-
-
+      <CardComponent v-for="tv in tvSeries" :key="tv.id"
+      :title="tv.name"
+      :originalTitle="tv.original_name"
+      :vote="tv.vote_average"
+      :language="tv.original_language"
+      :image="tv.poster_path"
+      />
     </div>
     
   </div>
@@ -19,8 +28,7 @@
 
 <script>
 import axios from 'axios';
-import MovieCard from '@/components/movieCard.vue'
-import TvSeriesCard from '@/components/tvSeriesCard.vue'
+import CardComponent from '@/components/CardComponent.vue'
 
 
 
@@ -64,8 +72,7 @@ export default {
     }
   },
   components:{
-    MovieCard,
-    TvSeriesCard
+    CardComponent
   }
 }
 </script>
