@@ -67,6 +67,7 @@ export default {
       .catch(error => {
           console.log(error.message)
       });
+      this.sortByPopularity();
       this.query = '';
     },
     moviesLinkBuilder(textToBuild){
@@ -77,6 +78,10 @@ export default {
     },
     checkData(response){
       return response.status === 200 ? response.data.results : []; 
+    },
+    sortByPopularity(){
+      this.movies.sort((a, b) => a.popularity - b.popularity);
+      this.tvSeries.sort((a, b) => a.popularity - b.popularity)
     }
   },
   components:{
