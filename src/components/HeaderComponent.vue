@@ -7,10 +7,10 @@
 
 <script>
 export default {
-    name: HeaderComponent,
+    name: 'HeaderComponent',
     data(){
         return{
-            query = ''
+            query: ''
         }
     }
 

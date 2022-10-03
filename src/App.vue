@@ -34,7 +34,6 @@ export default {
   name: 'App',
   data(){
     return{
-      query: '',
       movies: [],
       tvSeries: [],
       apiUrl: 'https://api.themoviedb.org/3/',
@@ -42,15 +41,15 @@ export default {
     }
   },
   methods:{
-    search(){
-      axios.get(this.moviesLinkBuilder()).then((response)=>{
+    search(textToSearch){
+      axios.get(this.moviesLinkBuilder(textToSearch)).then((response)=>{
        this.movies = this.checkData(response);
        console.log(this.movies);
       })
       .catch(error => {
         console.log(error.message)
       });
-      axios.get(this.tvLinkBuilder()).then((response)=>{
+      axios.get(this.tvLinkBuilder(textToSearch)).then((response)=>{
        this.tvSeries = this.checkData(response);
        console.log(this.tvSeries);
       })
@@ -59,11 +58,11 @@ export default {
       });
       this.query = '';
     },
-    moviesLinkBuilder(){
-      return `${this.apiUrl}search/movie?api_key=${this.apiKey}&query=${this.query}&page=1&include_adult=false`;
+    moviesLinkBuilder(textToBuild){
+      return `${this.apiUrl}search/movie?api_key=${this.apiKey}&query=${textToBuild}&page=1&include_adult=false`;
     },
-    tvLinkBuilder(){
-      return `${this.apiUrl}search/tv?api_key=${this.apiKey}&query=${this.query}&page=1&include_adult=false`;
+    tvLinkBuilder(textToBuild){
+      return `${this.apiUrl}search/tv?api_key=${this.apiKey}&query=${textToBuild}&page=1&include_adult=false`;
     },
     checkData(response){
       return response.status === 200 ? response.data.results : []; 
