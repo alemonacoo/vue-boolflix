@@ -1,9 +1,8 @@
 <template>
 <div class="card">
-        <p>Title: {{title}}</p> 
-        <p>Original Title: {{originalTitle}}</p>
-        <p>Language: 
-        <FlagComponent :language="language"/>
+        <p><strong>Title: </strong> {{title}}</p> 
+        <p><strong>Original Title: </strong>{{originalTitle}}</p>
+        <p><FlagComponent :language="language"/>
         </p> 
         <VoteComponent :vote="vote"/>
         <PosterComponent :image="image" :alt="title"/>
@@ -36,6 +35,19 @@ export default {
 <style lang="scss" scoped>
 .card{
     border: 1px solid black;
-    margin: 20px 0px;
+    margin: 10px;
+    padding: 10px;
+    flex-shrink: 0;
+    flex-direction: column;
+    display: flex;
+    overflow-x: auto;
+    background-color: black;
+    width: 200px;
+    height: 320px;
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+    border-radius: 5px;
+
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
 <div>
+    <strong>Language:</strong> 
     <img :src="getFlag(language)" :alt="language">
 </div>
 </template>
@@ -29,8 +30,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img{
-    width: 20px;
+div{
+    display: flex;
+    align-items: center;
+    img{
+    width: 17px;
+    height: 14px;
+    margin-left: 3px;
+    }
 }
-
 </style>

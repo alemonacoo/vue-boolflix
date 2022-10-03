@@ -1,8 +1,14 @@
 <template>
   <div id="app">
     <HeaderComponent @search="search"/>
-    <div>
+    <div class="cards-container">
       <h2 v-if="movies.length > 0">Movies</h2>
+      <div v-else>
+        <h3>Benvenuto su Boolflix!</h3>
+        <p>Per cominciare, cerca un film o una Serie Tv nella barra di ricerca</p>
+        <p>- by A.M.</p>
+      </div>
+      <div class="movies-container">
       <CardComponent v-for="movie in movies" :key="movie.id"
       :title="movie.title"
       :originalTitle="movie.original_title"
@@ -10,7 +16,9 @@
       :language="movie.original_language"
       :image="movie.poster_path"
       />
+      </div>
       <h2 v-if="tvSeries.length > 0">Tv Series</h2>
+      <div class="tvseries-container">
       <CardComponent v-for="tv in tvSeries" :key="tv.id"
       :title="tv.name"
       :originalTitle="tv.original_name"
@@ -18,6 +26,7 @@
       :language="tv.original_language"
       :image="tv.poster_path"
       />
+      </div>
     </div>
     
   </div>
@@ -75,15 +84,23 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url(@/main.scss);
-header{
-  display: flex;
-  align-items: center;
-  height: 10vh;
-  background-color: lightgray;
-  input, button{
-    height: 3vh;
-  }
-}
+    .cards-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px 40px;
+    min-height: 90vh;
+    background-color: #2b2b2b;
+    color: white;
+    h2{
+      margin-top:10px
+    }
+    .movies-container,
+    .tvseries-container{
+      display: flex;
+      overflow-x: auto;
+    }
+    }
 </style>

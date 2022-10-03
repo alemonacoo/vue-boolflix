@@ -51,6 +51,8 @@ export default {
 <style lang="scss" scoper>
 .StarsContainer{
   display: flex;
+  color: gold;
+  margin: 5px 0px;
 }
 
 </style>
