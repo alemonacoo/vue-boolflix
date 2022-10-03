@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <input type="text" name="query" v-model="query" @keyup.enter="search()">
-      <button @click="search()" >Vai!</button>
-    </header>
+    <HeaderComponent @search="search"/>
     <div>
       <h2 v-if="movies.length > 0">Movies</h2>
       <CardComponent v-for="movie in movies" :key="movie.id"
@@ -28,6 +25,7 @@
 
 <script>
 import axios from 'axios';
+import HeaderComponent from '@/components/HeaderComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
 
 
@@ -72,6 +70,7 @@ export default {
     }
   },
   components:{
+    HeaderComponent,
     CardComponent
   }
 }
