@@ -6,6 +6,7 @@
             <p><FlagComponent :language="language"/>
             </p> 
             <VoteComponent :vote="vote"/>
+            <p><strong>Overview: </strong>{{overview}}</p>
         </div>
         <PosterComponent class="poster" :image="image" :alt="title"/>
 </div>
@@ -24,7 +25,8 @@ export default {
         originalTitle: String,
         language: String,
         vote: Number,
-        image: String
+        image: String,
+        overview: String
     },components:{
         FlagComponent,
         PosterComponent,

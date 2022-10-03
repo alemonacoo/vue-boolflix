@@ -15,6 +15,7 @@
       :vote="movie.vote_average"
       :language="movie.original_language"
       :image="movie.poster_path"
+      :overview="movie.overview"
       />
       </div>
       <h2 v-if="tvSeries.length > 0">Tv Series</h2>
@@ -25,6 +26,7 @@
       :vote="tv.vote_average"
       :language="tv.original_language"
       :image="tv.poster_path"
+      :overview="tv.overview"
       />
       </div>
     </div>
