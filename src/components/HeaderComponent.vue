@@ -39,6 +39,7 @@ header{
     color: white;
     margin: 0px 5px;
     padding: 0px 5px;
+    outline: none;
   }
 }
 </style>

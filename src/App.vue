@@ -4,7 +4,7 @@
     <div class="cards-container">
       <h2 v-if="movies.length > 0">Movies</h2>
       <div v-else>
-        <h3>Benvenuto su Boolflix!</h3>
+        <h2>Benvenuto su Boolflix!</h2>
         <p>Per cominciare, cerca un film o una Serie Tv nella barra di ricerca</p>
         <p>- by A.M.</p>
       </div>

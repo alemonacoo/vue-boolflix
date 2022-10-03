@@ -1,7 +1,5 @@
 <template>
-  <div>
     <img :src="getImage()" :alt="alt" @error="errorPoster($event)">
-  </div>
 </template>
 
 <script>
@@ -26,22 +24,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// div{
-//   position: absolute;
-//   z-index: 2;
-//   height: 100%;
-//   width: 100%;
-//   align-items: center;
-//   display: flex;
-//   justify-content: center;
-// }
+
 img{
-    max-width: 180px;
-    position: absolute;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
 }
-// div:hover{
-//   z-index: 0;
-// }
 
 </style>

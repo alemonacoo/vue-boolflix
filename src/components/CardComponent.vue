@@ -1,11 +1,13 @@
 <template>
 <div class="card">
-        <p><strong>Title: </strong> {{title}}</p> 
-        <p><strong>Original Title: </strong>{{originalTitle}}</p>
-        <p><FlagComponent :language="language"/>
-        </p> 
-        <VoteComponent :vote="vote"/>
-        <PosterComponent :image="image" :alt="title"/>
+        <div class="cardDescription">
+            <p><strong>Title: </strong> {{title}}</p> 
+            <p><strong>Original Title: </strong>{{originalTitle}}</p>
+            <p><FlagComponent :language="language"/>
+            </p> 
+            <VoteComponent :vote="vote"/>
+        </div>
+        <PosterComponent class="poster" :image="image" :alt="title"/>
 </div>
 </template>
 
@@ -34,9 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-    border: 1px solid black;
     margin: 10px;
-    padding: 10px;
     flex-shrink: 0;
     flex-direction: column;
     display: flex;
@@ -48,6 +48,12 @@ export default {
     z-index: 1;
     font-size: 0.9rem;
     border-radius: 5px;
-
+    .cardDescription{
+        padding: 10px;
+    }
+    .poster:hover{
+          opacity: 0.2;
+          transition: opacity .15s ease-in-out;
+    }
 }
 </style>
